@@ -352,40 +352,6 @@ export const Contact = () => {
     });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  
-  //   if (!formDetails.firstName || !formDetails.lastName || !formDetails.email || !formDetails.message) {
-  //     setStatus({ success: false, message: 'Please fill in all required fields.' });
-  //     return;
-  //   }
-  
-  //   setButtonText("Sending...");
-  //   try {
-  //     let response = await fetch("http://localhost:3000/send-email", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json;charset=utf-8",
-  //       },
-  //       body: JSON.stringify(formDetails),
-  //     });
-  
-  //     let result = await response.json();
-  
-  //     if (response.ok) {
-  //       setStatus({ success: true, message: 'Message sent successfully' });
-  //       setFormDetails(formInitialDetails);
-  //     } else {
-  //       setStatus({ success: false, message: result.message || 'Something went wrong, please try again later.' });
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     setStatus({ success: false, message: 'Network error, please try again later.' });
-  //   } finally {
-  //     setButtonText("Send");
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -396,7 +362,7 @@ export const Contact = () => {
   
     setButtonText("Sending...");
     try {
-      let response = await fetch("http://localhost:3000/send-email", {
+      let response = await fetch(process.env.REACT_APP_SERVER_URL + "/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
