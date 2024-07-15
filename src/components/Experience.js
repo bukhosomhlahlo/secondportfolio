@@ -11,6 +11,7 @@ import projImg5 from '../assets/img/project 5.PNG';
 import projImg6 from '../assets/img/project 6.png';
 import EngageHUB from '../assets/img/EngageHUB.PNG';
 import bankingapp from '../assets/img/bankingapp.PNG';
+import LMS from '../assets/img/LMS.PNG';
 import colorSharp2 from '../assets/img/color-sharp2.png';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -24,7 +25,8 @@ export const Experience = () => {
     { title: "My Portfolio", description: "HTML, CSS, Javascript Portfolio", url: "https://bukhosomhlahaloportfolio.netlify.app", imgUrl: projImg5 },
     { title: "Python Quiz App", description: "Beginner App", imgUrl: projImg6 },
     { title: "EngageHUB", description: "Hackathon Innaugral with City of Cape Town", imgUrl: EngageHUB, url: "https://engagewithciti.netlify.app/"},
-    { title: "Banking App", description: "Mobile Banking App", imgUrl: bankingapp, url: "https://github.com/bukhosomhlahlo/Cap-Digital-Express",}
+    { title: "Banking App", description: "Mobile Banking App", imgUrl: bankingapp, url: "https://github.com/bukhosomhlahlo/Cap-Digital-Express",},
+    { title: "Library Track", description: "Library Management System", imgUrl: LMS, url: "https://github.com/bukhosomhlahlo/LibraryTrack",}
   ];
 
   // const education = [
