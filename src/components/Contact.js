@@ -26,30 +26,25 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formDetails.firstName || !formDetails.lastName || !formDetails.email || !formDetails.message) {
       setStatus({ success: false, message: 'Please fill in all required fields.' });
       return;
     }
 
-    fetch('/api/server.js')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-
     setButtonText("Sending...");
-    
+
     try {
-      let response = await fetch(process.env.REACT_APP_SERVER_URL + "/send-email", {
+      let response = await fetch("/send-email", {  // Using relative path due to proxy setup in package.json
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
         },
         body: JSON.stringify(formDetails),
       });
-  
+
       let result = await response.json();
-  
+
       if (response.ok) {
         setStatus({ success: true, message: 'Message sent successfully' });
         setFormDetails(formInitialDetails);
@@ -63,7 +58,7 @@ export const Contact = () => {
       setButtonText("Send");
     }
   };
-  
+
 
   return (
     <section className="contact" id="connect">

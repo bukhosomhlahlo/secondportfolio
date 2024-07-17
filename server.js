@@ -1,3 +1,5 @@
+// server.js
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -5,6 +7,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+
+// CORS setup to allow requests from your frontend URL (replace with your actual frontend URL)
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://your-netlify-site-url.com');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -12,9 +16,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// CORS setup to allow requests from http://localhost:3000
 const corsOptions = {
-  origin: 'http://localhost:3000', // Update with your frontend URL
+  origin: 'http://localhost:3000', // Update with your frontend URL during development
   methods: ['POST'],
   allowedHeaders: ['Content-Type']
 };
