@@ -32,7 +32,7 @@ export const Contact = () => {
       return;
     }
 
-    fetch('/api/server.js')
+    fetch('https://your-heroku-app.herokuapp.com/api/data')
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
