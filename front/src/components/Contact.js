@@ -32,15 +32,15 @@ export const Contact = () => {
       return;
     }
 
-    fetch('/api/server.js')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+    // fetch('./backend/api/server.js')
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // .catch(error => console.error('Error:', error));
 
-    setButtonText("Sending...");
+    // setButtonText("Sending...");
 
     try {
-      let response = await fetch("/send-email", {  // Using relative path due to proxy setup in package.json
+      let response = await fetch("https://backend-4o9ldq8li-bukho-solulele-somhlahlos-projects.vercel.app/send-email", { // Use your actual Vercel backend URL
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
