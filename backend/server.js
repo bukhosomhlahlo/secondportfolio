@@ -7,13 +7,13 @@ require('dotenv').config();
 const app = express();
 
 // CORS setup
-const corsOptions = {
-  origin: 'https://bukhosomhlahlo2portfolio.vercel.app', // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type'],
-};
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://bukhosomhlahlo2portfolio.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
-app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
