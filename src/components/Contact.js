@@ -40,7 +40,7 @@ export const Contact = () => {
     // setButtonText("Sending...");
 
     try {
-      let response = await fetch("https://backend-8phi45lwx-bukho-solulele-somhlahlos-projects.vercel.app/send-email", { // Use your actual Vercel backend URL
+      let response = await fetch("https://backend-nnyzey0xx-bukho-solulele-somhlahlos-projects.vercel.app/send-email", { // Use your actual Vercel backend URL
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
