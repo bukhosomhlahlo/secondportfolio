@@ -155,12 +155,12 @@ const app = express();
 
 // CORS setup
 const corsOptions = {
-  origin: 'https://bukhosomhlahlo2portfolio.vercel.app', // Your frontend URL
+  origin: 'https://bukhosomhlahlo2portfolio.vercel.app', // Update with your Vercel URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
 };
-
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Enable preflight requests for all routes
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
