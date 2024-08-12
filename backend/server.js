@@ -6,35 +6,32 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS setup
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://bukhosomhlahlo2portfolio.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+// Define CORS options
+const corsOptions = {
+  origin: 'https://bukhosomhlahlo2portfolio.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],  // Ensure OPTIONS is included for preflight requests
+  allowedHeaders: ['Content-Type'],
+  credentials: true,  // if your frontend needs to pass credentials
+};
 
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Setup body parser middleware to handle form data and json data
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 4000;
 
+// Email configuration and transporter setup
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
+    user: process.env.EMAIL_USER,  // Ensure these are correctly set in your environment
     pass: process.env.EMAIL_PASS
   }
 });
 
-// Verify email transporter
-transporter.verify((error) => {
-  if (error) {
-    console.log("Error verifying email transporter:", error);
-  } else {
-    console.log("Email transporter is ready to send emails");
-  }
-});
 
 app.post('/send-email', (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
